@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Frédéric Hannes"
+		]
+	},
+	"ipbloginauth-desc": "Provides an authentication mechanism to log in using Invision Power Board accounts",
+	"unexpected-error": "An unexpected error occurred.",
+	"db-access-error": "Unable to access the specified database.",
+	"no-user-error": "No user found matching the given credentials.",
+	"db-error": "Unknown database error.",
+	"no-local-pass-change": "Local password changes are not allowed."
+}
