@@ -1,16 +1,11 @@
-{
+﻿{
 	"name": "IPBLoginAuth",
 	"version": "1.0.0",
 	"author": "Frédéric Hannes",
 	"url": "https://www.mediawiki.org/wiki/Extension:IPBAuthLogin",
 	"descriptionmsg": "ipbloginauth-desc",
-	"license-name": "",
+	"license-name": "GPLv3",
 	"type": "auth",
-	"GroupPermissions": {
-		"sysop": {
-			"managegooglelogin": true
-		}
-	},
 	"requires": {
 		"MediaWiki": ">= 1.27.0"
 	},
