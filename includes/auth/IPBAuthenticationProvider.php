@@ -132,7 +132,7 @@ class IPBAuthenticationProvider extends AbstractPrimaryAuthenticationProvider
     }
 
     public function getAuthenticationRequests($action, array $options)
-    {
+    {                             
         switch ($action) {
             case AuthManager::ACTION_LOGIN:
                 return [new IPBAuthenticationRequest()];
@@ -143,9 +143,7 @@ class IPBAuthenticationProvider extends AbstractPrimaryAuthenticationProvider
 
     public static function onUserLoggedIn($user)
     {
-        /**
-         * When a user logs in, update the local account with information from the IPB database.
-         */
+        // When a user logs in, update the local account with information from the IPB database.
         IPBAuth::updateUser($user);
     }
 
@@ -160,7 +158,8 @@ class IPBAuthenticationProvider extends AbstractPrimaryAuthenticationProvider
 
     public function providerAllowsPropertyChange($property)
     {
-        return false;
+        // Allow users to change their signature
+	    return $property == 'nickname';
     }
 
     public function providerChangeAuthenticationData(AuthenticationRequest $req)

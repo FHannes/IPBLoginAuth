@@ -1,6 +1,6 @@
 ﻿{
 	"name": "IPBLoginAuth",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Frédéric Hannes",
 	"url": "https://www.mediawiki.org/wiki/Extension:IPBAuthLogin",
 	"descriptionmsg": "ipbloginauth-desc",
