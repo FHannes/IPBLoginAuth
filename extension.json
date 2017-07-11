@@ -1,46 +1,45 @@
-﻿{
-	"name": "IPBLoginAuth",
-	"version": "1.0.1",
-	"author": "Frédéric Hannes",
-	"url": "https://www.mediawiki.org/wiki/Extension:IPBAuthLogin",
-	"descriptionmsg": "ipbloginauth-desc",
-	"license-name": "GPLv3",
-	"type": "auth",
-	"requires": {
-		"MediaWiki": ">= 1.27.0"
-	},
-	"ConfigRegistry": {
-		"ipbloginauth": "GlobalVarConfig::newInstance"
-	},
-	"MessagesDirs": {
-		"IPBLoginAuth": [
-			"i18n"
-		]
-	},
-	"AutoloadClasses": {
-		"IPBLoginAuth\\Auth\\IPBAuthenticationProvider": "includes/auth/IPBAuthenticationProvider.php",
-		"IPBLoginAuth\\Auth\\IPBAuthenticationRequest": "includes/auth/IPBAuthenticationRequest.php",
-		"IPBLoginAuth\\IPBAuth": "includes/IPBAuth.php"
-	},
-	"AuthManagerAutoConfig": {
-		"primaryauth": {
-			"IPBLoginAuth\\Auth\\IPBAuthenticationProvider": {
-				"class": "IPBLoginAuth\\Auth\\IPBAuthenticationProvider",
-				"sort": 0
-			}
-		}
-	},
-	"config": {
-		"IPBDBHost": "",
-		"IPBDBUsername": "",
-		"IPBDBPassword": "",
-		"IPBDBDatabase": "",
-		"IPBDBPrefix": "",
-		
-		"IPBGroupValidating": 1,
-		"IPBGroupMap": {
-		    "sysop": 4
-		}
-	}
-}
+{
+    "name": "IPBLoginAuth",
+    "version": "1.0.1",
+    "author": "Frédéric Hannes",
+    "url": "https://www.mediawiki.org/wiki/Extension:IPBAuthLogin",
+    "descriptionmsg": "ipbloginauth-desc",
+    "license-name": "GPLv3",
+    "type": "auth",
+    "requires": {
+        "MediaWiki": ">= 1.27.0"
+    },
+    "ConfigRegistry": {
+        "ipbloginauth": "GlobalVarConfig::newInstance"
+    },
+    "MessagesDirs": {
+        "IPBLoginAuth": [
+            "i18n"
+        ]
+    },
+    "AutoloadClasses": {
+        "IPBLoginAuth\\Auth\\IPBAuthenticationProvider": "includes/auth/IPBAuthenticationProvider.php",
+        "IPBLoginAuth\\Auth\\IPBAuthenticationRequest": "includes/auth/IPBAuthenticationRequest.php",
+        "IPBLoginAuth\\IPBAuth": "includes/IPBAuth.php"
+    },
+    "AuthManagerAutoConfig": {
+        "primaryauth": {
+            "IPBLoginAuth\\Auth\\IPBAuthenticationProvider": {
+                "class": "IPBLoginAuth\\Auth\\IPBAuthenticationProvider",
+                "sort": 0
+            }
+        }
+    },
+    "config": {
+        "IPBDBHost": "",
+        "IPBDBUsername": "",
+        "IPBDBPassword": "",
+        "IPBDBDatabase": "",
+        "IPBDBPrefix": "",
 
+        "IPBGroupValidating": 1,
+        "IPBGroupMap": {
+            "sysop": 4
+        }
+    }
+}
