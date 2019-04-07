@@ -233,6 +233,7 @@ class IPBAuth
      */
     public static function userExists($username)
     {
+	$cfg = IPBAuth::getConfig();
         $sql = IPBAuth::getSQL();
         try {
             if ($sql->connect_errno) {
