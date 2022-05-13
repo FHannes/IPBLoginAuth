@@ -206,9 +206,9 @@ class IPBAuth
                             if (is_array($groupmap)) {
                                 foreach ($groupmap as $ug_wiki => $ug_ipb) {
                                     $user_has_ug = in_array($ug_wiki, $user->getEffectiveGroups());
-                                    if (in_array($ug_ipb, $groups) && !$user_has_ug) {
+                                    if (!empty(array_intersect((array)$ug_ipb, $groups)) && !$user_has_ug) {
                                         $user->addGroup($ug_wiki);
-                                    } elseif (!in_array($ug_ipb, $groups) && $user_has_ug) {
+                                    } elseif (empty(array_intersect((array)$ug_ipb, $groups)) && $user_has_ug) {
                                         $user->removeGroup($ug_wiki);
                                     }
                                 }
