@@ -21,6 +21,7 @@ namespace IPBLoginAuth;
 
 use ConfigFactory;
 use User;
+use UserGroupManager;
 
 class IPBAuth
 {
@@ -220,11 +221,11 @@ class IPBAuth
                             $groupmap = $cfg->get('IPBGroupMap');
                             if (is_array($groupmap)) {
                                 foreach ($groupmap as $ug_wiki => $ug_ipb) {
-                                    $user_has_ug = in_array($ug_wiki, $user->getEffectiveGroups());
+                                    $user_has_ug = in_array($ug_wiki, UserGroupManager::getUserEffectiveGroups($user));
                                     if (!empty(array_intersect((array)$ug_ipb, $groups)) && !$user_has_ug) {
-                                        $user->addGroup($ug_wiki);
+                                        UserGroupManager::addUserToGroup($user,$ug_wiki);
                                     } elseif (empty(array_intersect((array)$ug_ipb, $groups)) && $user_has_ug) {
-                                        $user->removeGroup($ug_wiki);
+                                        UserGroupManager::removeUserFromGroup($user,$ug_wiki);
                                     }
                                 }
                             }
