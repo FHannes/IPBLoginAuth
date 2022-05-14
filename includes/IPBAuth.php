@@ -206,7 +206,7 @@ class IPBAuth
                                     try {
                                         $vals->bind_param('i', $member_id);
                                         $vals->execute();
-                                        if (!$vals->rowCount()) { // it will return >=1 rows if the user is validating
+                                        if ($vals->num_rows > 0) { // it will return >=1 rows if the user is validating
                                             $user->confirmEmail();
                                         }
                                     } finally {
