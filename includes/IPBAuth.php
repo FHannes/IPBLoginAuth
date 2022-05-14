@@ -186,18 +186,33 @@ class IPBAuth
             }
 
             // Update user
-            $stmt = $sql->prepare("SELECT member_group_id, mgroup_others, email, {$name_field} FROM {$prefix}members WHERE lower(name) = lower(?)");
+            $stmt = $sql->prepare("SELECT member_id, member_group_id, mgroup_others, email, {$name_field} FROM {$prefix}members WHERE lower(name) = lower(?)");
             if ($stmt) {
                 try {
                     $stmt->bind_param('s', $username);
                     $stmt->execute();
                     $stmt->store_result();
                     if ($stmt->num_rows == 1) {
-                        $stmt->bind_result($member_group_id, $mgroup_others, $email, $members_display_name);
+                        $stmt->bind_result($member_id, $member_group_id, $mgroup_others, $email, $members_display_name);
                         if ($stmt->fetch()) {
                             $user->setEmail($email);
-                            if ($member_group_id != $cfg->get('IPBGroupValidating')) {
-                                $user->confirmEmail();
+                            if ($ipbver == 4) {
+                                if ($member_group_id != $cfg->get('IPBGroupValidating')) {
+                                    $user->confirmEmail();
+                                }
+                            } elseif ($ipbver > 4) { // 4.6? changed validating members to a different table
+                                $vals = $sql->prepare("SELECT vid FROM {$prefix}validating WHERE member_id = ? AND lost_pass != 1 AND forgot_security != 1");
+                                if ($vals) {
+                                    try {
+                                        $vals->bind_param('i', $member_id);
+                                        $vals->execute();
+                                        if (!$vals->rowCount()) { // it will return >=1 rows if the user is validating
+                                            $user->confirmEmail();
+                                        }
+                                    } finally {
+                                        $vals->close();
+                                    } 
+                                }
                             }
                             $user->setRealName($members_display_name);
                             $groups = explode(",", $mgroup_others);
