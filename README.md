@@ -8,7 +8,7 @@ As IPB usernames are not case sensitive, extension converts any username into a 
 Requirements
 ------------
 
-* MediaWiki 1.27+
+* MediaWiki 1.35+
 * Invision Power Board 3 / IPS Community 4
 * MySQL database for IPB
 * PHP 7.0+ (Untested for PHP 5.6 and older)
@@ -27,7 +27,7 @@ This extension is licensed under the included GPLv3 license.
 Contributing
 ------------
 
-Contributions can be made to the plugin by submitting pull requests through its [GitHub repository](https://github.com/FHannes/IPBAuthLogin).
+Contributions can be made to the plugin by submitting pull requests through its [GitHub repository](https://github.com/peerau/IPBAuthLogin).
 
 TODO
 ----
