@@ -1,7 +1,7 @@
 IPBAuthLogin
 ============
 
-IPBAuthLogin is a plugin for MediaWiki 1.27 and up which integrates MediaWiki with an [Invision Power Board and Invision Community](https://invisioncommunity.com) forum's user database. By enabling the extension, it is possible to log into the MediaWiki installation using IPB user accounts. The extension creates local user accounts on MediaWiki, which are always authenticated though this extension.
+IPBAuthLogin is a plugin for MediaWiki 1.35 and up which integrates MediaWiki with an [Invision Power Board and Invision Community](https://invisioncommunity.com) forum's user database. By enabling the extension, it is possible to log into the MediaWiki installation using IPB user accounts. The extension creates local user accounts on MediaWiki, which are always authenticated though this extension.
 
 As IPB usernames are not case sensitive, extension converts any username into a canonical form, to avoid duplicate local accounts being created for the same user.
 
